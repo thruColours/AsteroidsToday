@@ -1,0 +1,125 @@
+.bodi {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+@font-face {
+  font-family: newFont;
+  /* src: url(/assets/fonts/tommys.ttf); */
+  src: url(/assets/fonts/FakeHope.ttf);
+
+}
+
+@font-face {
+  font-family: helvetic;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/HelveticaNeue.ttc);
+
+}
+
+@font-face {
+  font-family: potra;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/Potra.ttf);
+}
+
+.fontyHead {
+  font-family: newFont;
+  font-size: 2vw;
+  position: fixed;
+  text-align: center;
+  left: 42vw;
+  top: 25vh;
+  color: white;
+
+}
+
+.positionBox {
+  position: fixed;
+  top: 28vh;
+  left: 40vw;
+  color: white;
+}
+
+.fonty {
+  font-family: newFont;
+  font-size: 1.75vw;
+  text-align: center;
+}
+
+#totalAsteroids {
+  font-size: 6vw;
+  font-family: newFont;
+}
+
+#potentiallyHazardous {
+  font-size: 6vw;
+  font-family: newFont;
+}
+
+#date {
+  font-family: newFont;
+  font-size: 2vw;
+}
+
+#hazTimeDisplay {
+  font-family: newFont;
+  font-size: 2vw;
+  position: relative;
+  width: 19vw;
+  top: -2vh;
+  /* left: 43vw; */
+  text-align: center;
+}
+
+#closeApproch {
+  font-family: newFont;
+  font-size: 1.5vw;
+  font-weight:
+}
+
+.dot {
+  position: fixed;
+  background-color: black;
+  border-radius: 50%;
+  height: 0.5em;
+  width: 0.5em;
+
+  top: 48vh;
+  left: 50vw;
+
+  animation: myOrbit linear infinite 4s ;
+}
+
+.dot2 {
+  position: fixed;
+  background-color: black;
+  border-radius: 50%;
+  height: 0.4em;
+  width: 0.4em;
+
+  top: 48vh;
+  left: 50vw;
+
+  animation: myOrbit linear infinite 6s ;
+}
+
+.dot3 {
+  position: fixed;
+  background-color: black;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
+
+  top: 48vh;
+  left: 50vw;
+
+  animation: myOrbit linear infinite 8s ;
+}
+
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+}
+
