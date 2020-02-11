@@ -1,5 +1,5 @@
 
-// const api_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2020-01-31&end_date=2020-01-31&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
+// const api_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2020-02-10&end_date=2020-02-10&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
 const api_url = 'https://api.nasa.gov/neo/rest/v1/feed/today?detail=true&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
 //rate limit once per second
 
