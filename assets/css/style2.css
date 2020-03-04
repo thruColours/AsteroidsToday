@@ -1,0 +1,281 @@
+.bodi {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: newFont;
+  /* src: url(/assets/fonts/tommys.ttf); */
+  src: url(/assets/fonts/FakeHope.ttf);
+
+}
+
+@font-face {
+  font-family: helvetic;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/HelveticaNeue.ttc);
+
+}
+
+@font-face {
+  font-family: potra;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/Potra.ttf);
+}
+
+/* .fontyHead {
+  font-family: newFont;
+  font-size: 3vw;
+  position: fixed;
+  text-align: center;
+  left: 44.25vw;
+  top: 14.5vh;
+  color: white;
+
+} */
+
+#totalAsteroids {
+  font-size: 14vmin;
+  font-family: newFont;
+  /* font-family: 'IBM Plex Sans', ; */
+}
+
+.todTot {
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  position: absolute;
+  top: 5.5vmin;
+  left: 5vmin;
+  text-align: left;
+  color: white;
+  z-index: 1;
+}
+
+.posTot {
+  color: white;
+  position: fixed;
+  top: 5.5vmin;
+  left: 32vmin;
+}
+
+#potentiallyHazardous {
+  font-size: 14vmin;
+  font-family: newFont;
+  color: #DC143C;
+}
+
+.potHaz {
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  position: absolute;
+  top: 22vmin;
+  left: 55vmin;
+  text-align: left;
+  color: white;
+  z-index: 1;
+}
+
+.posHaz {
+  color: white;
+  position: absolute;
+  top: 22vmin;
+  left: 85vmin;
+}
+
+#nonHazardous {
+  font-size: 14vmin;
+  font-family: newFont;
+  /* color: #008B8B; */
+  color: #008B8B;
+}
+
+.nonHaz {
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  position: absolute;
+  top: 22vmin;
+  left: 5vmin;
+  text-align: left;
+  color: white;
+  z-index: 1;
+}
+
+.posNonHaz {
+  color: white;
+  position: absolute;
+  top: 22vmin;
+  left: 32vmin;
+}
+
+#date {
+  font-family: newFont;
+  font-size: 2vw;
+}
+
+#hazTimeDisplay {
+  font-family: 'IBM Plex Sans';
+  font-size: 6vmin;
+  position: absolute;
+  width: 1vmin;
+  top: 41vmin;
+  left: 55vmin;
+  /* left: 43vw; */
+  text-align: left;
+  color: #DC143C;
+}
+
+#nonHazTimeDisplay {
+  font-family: 'IBM Plex Sans';
+  font-size: 3vmin;
+  position: absolute;
+  width: 1vmin;
+  top: 42vmin;
+  left: 5.5vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #008B8B;
+}
+
+#nonHazTimeDisplay2 {
+  font-family: 'IBM Plex Sans';
+  font-size: 3vmin;
+  position: absolute;
+  width: 1vmin;
+  top: 42vmin;
+  left: 18vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #008B8B;
+}
+
+#closeApprochHaz {
+  color: white;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 3vmin;
+  z-index: 1;
+  left: 55vmin;
+  top: 37vmin;
+  position: absolute;
+}
+
+#closeApprochNon {
+  color: white;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 3vmin;
+  z-index: 1;
+  left: 5vmin;
+  top: 37vmin;
+  position: absolute;
+}
+
+.dot {
+  position: fixed;
+  background-color: purple;
+  border-radius: 50%;
+  height: 0.5em;
+  width: 0.5em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 6s ;
+  /* opacity: 75%; */
+}
+
+.dot2 {
+  position: fixed;
+  background-color: orange;
+  border-radius: 50%;
+  height: 0.4em;
+  width: 0.4em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 8s ;
+  /* opacity: 75%; */
+}
+
+.dot3 {
+  position: fixed;
+  background-color: green;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 10s ;
+  /* opacity: 75%; */
+}
+
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(240px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
+}
+
+.earth {
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+  width: 20vmin;
+  /* filter: invert(100%); */
+  /* filter: invert(50%) sepia(0); */
+  z-index: 1;
+}
+
+#time{
+  position: absolute;
+  font-family: 'IBM Plex Sans';
+  font-size: 4vmin;
+  top: 4vmin;
+  right: 1.25vmin;
+  color: white;
+  animation: blink 1s alternate infinite;
+  text-align: left;
+}
+
+.timeNow{
+  position: absolute;
+  font-family: 'IBM Plex Sans';
+  font-size: 3vmin;
+  top: 4vmin;
+  right: 5vmin;
+  color: white;
+  /* animation: blink 1s alternate infinite; */
+  text-align: left;
+}
+
+@keyframes blink {
+  from { opacity: 0%; }
+  to { opacity: 100%; }
+}
+
+.astApproach {
+  position: absolute;
+  background-color: #8B0000;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
+
+  /* top: 50vh; */
+  /* left: 9vw; */
+
+  z-index: 0;
+}

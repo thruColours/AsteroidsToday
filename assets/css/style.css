@@ -1,0 +1,208 @@
+.bodi {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: newFont;
+  /* src: url(/assets/fonts/tommys.ttf); */
+  src: url(/assets/fonts/FakeHope.ttf);
+
+}
+
+@font-face {
+  font-family: helvetic;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/HelveticaNeue.ttc);
+
+}
+
+@font-face {
+  font-family: potra;
+  /* src: url(/assets/fonts/homeworkpreschooler.ttf); */
+  src: url(/assets/fonts/Potra.ttf);
+}
+
+/* .fontyHead {
+  font-family: newFont;
+  font-size: 3vw;
+  position: fixed;
+  text-align: center;
+  left: 44.25vw;
+  top: 14.5vh;
+  color: white;
+
+} */
+
+#totalAsteroids {
+  font-size: 14vmin;
+  font-family: newFont;
+  /* font-family: 'IBM Plex Sans', ; */
+}
+
+.todTot {
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  position: absolute;
+  top: 5vmin;
+  left: 6vmin;
+  text-align: left;
+  color: black;
+  z-index: 1;
+}
+
+.posTot {
+  color: black;
+  position: fixed;
+  top: 5vmin;
+  left: 35vmin;
+}
+
+#potentiallyHazardous {
+  font-size: 14vmin;
+  font-family: newFont;
+  /* color: red; */
+}
+
+.potHaz {
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  position: absolute;
+  top: 20vmin;
+  left: 6vmin;
+  text-align: left;
+  color: black;
+  z-index: 1;
+}
+
+.posHaz {
+  color: black;
+  position: absolute;
+  top: 20vmin;
+  left: 35vmin;
+}
+
+#date {
+  font-family: newFont;
+  font-size: 2vw;
+}
+
+#hazTimeDisplay {
+  font-family: newFont;
+  font-size: 8vmin;
+  position: absolute;
+  width: 1vmin;
+  top: 42vmin;
+  left: 6.5vmin;
+  /* left: 43vw; */
+  text-align: left;
+  color: red;
+
+}
+
+#closeApproch {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 4vmin;
+  z-index: 1;
+  left: 4vmin;
+  top: 35vmin;
+  position: absolute;
+}
+
+.dot {
+  position: fixed;
+  background-color: purple;
+  border-radius: 50%;
+  height: 0.5em;
+  width: 0.5em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 6s ;
+  /* opacity: 75%; */
+}
+
+.dot2 {
+  position: fixed;
+  background-color: orange;
+  border-radius: 50%;
+  height: 0.4em;
+  width: 0.4em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 8s ;
+  /* opacity: 75%; */
+}
+
+.dot3 {
+  position: fixed;
+  background-color: green;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
+
+  top: 50vh;
+  left: 50vw;
+
+  z-index: -1;
+
+  animation: myOrbit linear infinite 10s ;
+  /* opacity: 75%; */
+}
+
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(240px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
+}
+
+.earth {
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+  width: 20vmin;
+  /* filter: invert(100%); */
+  /* filter: invert(50%) sepia(0); */
+  z-index: 1;
+}
+
+#time{
+  position: absolute;
+  font-family: newFont;
+  font-size: 8vmin;
+  top: 4vmin;
+  right: 4vmin;
+  color: black;
+  animation: blink 1s alternate infinite;
+  text-align: left;
+}
+
+@keyframes blink {
+  from { opacity: 0%; }
+  to { opacity: 100%; }
+}
+
+#astApproach {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
+
+  top: 50vh;
+  /* left: 9vw; */
+
+  z-index: 0;
+}

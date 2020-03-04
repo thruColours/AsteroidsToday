@@ -6,48 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- api key: oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="assets/javascript/lib/p5.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/lib/p5.dom.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/lib/p5.sound.min.js"></script>
    <title>getAsteroidData</title>
   </head>
   <body class="bodi">
     <!-- <h1> Asteroids - NeoWs </h1> -->
-      <div class="fontyHead"> Today's Asteroids
+      <!-- <div class="fontyHead"> Today's Asteroids
         <br />
 
         <span id="date"></span>
 
+      </div> -->
+
+      <!-- <div class="positionBox"> -->
+      <div class="timeNow">time now
+      <div id="time"> </div>
       </div>
 
-      <div class="positionBox">
-
-        <p class="fonty">
-          Total
-          <br />
-          <span id="totalAsteroids"></span>
-          <br />
-          Potentially
+        <div class="todTot">
+          Today's <br />
+          Asteroids
+        </div>
           <!-- <br /> -->
-          hazardous*
+        <div class="posTot">
+          <span id="totalAsteroids"></span>
+        </div>
+
+        <div class="potHaz">
+          Potentially
           <br />
+          hazardous
+        </div>
+
+        <div class="posHaz">
           <span id="potentiallyHazardous"></span>
-          <br />
+        </div>
+
+        <div class="nonHaz">
+          Friendly
+        </div>
+
+        <div class="posNonHaz">
+          <span id="nonHazardous"></span>
+        </div>
+
           <!-- velocity: <span id="date"></span> -->
           <!-- <br /> -->
-          <span id="closeApproch"> *Close approach time</span>
+          <!-- <span id="closeApproch"> *Close approach time</span> -->
 
-          <span> <div id="hazTimeDisplay"></div></span>
-        </p>
+          <!-- <span> <div id="hazTimeDisplay"></div></span> -->
 
-      <!-- <div id="hazTimeDisplay"></div> -->
 
-      <div class="dot">
+      <div id="closeApprochNon"> Close approach </div>
+      <div id="nonHazTimeDisplay"></div>
+      <div id="nonHazTimeDisplay2"></div>
+
+      <div id="closeApprochHaz"> Close approach </div>
+      <div id="hazTimeDisplay"></div>
+
+      <!-- <div class="earth"> <img src="/assets/images/earthOutline.svg"> </div> -->
+
+      <!-- <div class="dot">
       </div>
 
       <div class="dot2">
       </div>
 
       <div class="dot3">
-      </div>
+      </div> -->
+
+      <!-- <div class="astApproach"> </div> -->
 
     <script src="getAstDisplay.js"> </script>
 
