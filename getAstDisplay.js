@@ -1,6 +1,7 @@
 
-// const api_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2020-02-28&end_date=2020-02-28&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
-const api_url = 'https://api.nasa.gov/neo/rest/v1/feed/today?detail=true&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
+// const api_url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2020-04-21&end_date=2020-04-21&api_key=oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp';
+const api_url = 'https://api.nasa.gov/neo/rest/v1/feed/today?detail=true&api_key=vqy6sWn5jqFqDWApqmYnHieWCXebnkxtKG7gpOoX';
+// const api_url = 'https://api.nasa.gov/neo/rest/v1/feed/today?detail=true&api_key=vqy6sWn5jqFqDWApqmYnHieWCXebnkxtKG7gpOoX';
 //rate limit once per second
 
 const alert = "error";
@@ -19,9 +20,6 @@ async function getAst() {
   let astTimes = [];
   let hazTimes = [];
 
-  let allId = [];
-  let hazId = [];
-
   // let hazString = hazId.toString();
   let hazTimeDisplay = [];
   let nonTimeDisplay = [];
@@ -33,6 +31,15 @@ async function getAst() {
   let sizeCut = 0;
   // let nonSlice1 = [];
 
+  let hazMissDist = [];
+  let missDist = [];
+
+  let nonSizeMin = [];
+  let nonSizeMx = [];
+
+  let hazSizeMin = [];
+  let hazSizeMx = [];
+
   //show time, adding 0 when approriate
   var today = new Date();
     var hours = today.getHours();
@@ -41,65 +48,75 @@ async function getAst() {
     };
     var minutes = today.getMinutes();
     if (minutes < 10) {
-      minutes = "0" + minutes;
+      minutes = "0" + minutes++;
+    }
+    else if (minutes >= 10){
+      minutes = minutes++;
     };
+
   var time = hours + ":" + minutes;
 
   console.log(near_earth_objects);
-  // console.log(currentDate);
 
   //make sure to use '===' or atleast '==' you numpty!
   near_earth_objects[currentDate].forEach((item) => {
 
     astTimes.push(item.close_approach_data[0].epoch_date_close_approach);
-    allId.push(item.id);
 
 
-
-    if (item.is_potentially_hazardous_asteroid === true) {
-    totalHaz++;
-    hazId.push(item.id);
-    hazTimes.push(item.close_approach_data[0].epoch_date_close_approach);
-    hazTimeDisplay.push(item.close_approach_data[0].close_approach_date_full);
-    // hazTimeDisplay.push(item.close_approach_data[0].close_approach_date_full.replace(",", "<br />"));
-    // console.log(item.id);
+    if (item.is_potentially_hazardous_asteroid === true && item.close_approach_data[0].close_approach_date_full != null) {
+      totalHaz++;
+      hazTimes.push(item.close_approach_data[0].epoch_date_close_approach);
+      hazTimeDisplay.push(item.close_approach_data[0].close_approach_date_full + "  ➮  " + item.name);
+      // hazName.push(item.name);
+      hazMissDist.push(item.close_approach_data[0].close_approach_date_full + "_" + item.close_approach_data[0].miss_distance.kilometers);
+      hazSizeMin.push(item.close_approach_data[0].close_approach_date_full + "_" + item.estimated_diameter.meters.estimated_diameter_min);
+      hazSizeMx.push(item.close_approach_data[0].close_approach_date_full + "_" + item.estimated_diameter.meters.estimated_diameter_max);
     }
-    else {
-    nonTimeDisplay.push(item.close_approach_data[0].close_approach_date_full);
-    nonHaz++;
+
+    else if (item.is_potentially_hazardous_asteroid === true && item.close_approach_data[0].close_approach_date_full == null) {
+      totalHaz++;
+      hazNa.push(item.close_approach_data[0].close_approach_date_full + "      ➮  " + item.name);
+      hazMissDist.push(item.close_approach_data[0].close_approach_date_full + "_" + item.close_approach_data[0].miss_distance.kilometers);
+    }
+
+    else if (item.is_potentially_hazardous_asteroid === false && item.close_approach_data[0].close_approach_date_full != null) {
+      nonTimeDisplay.push(item.close_approach_data[0].close_approach_date_full + "  ➮  " + item.name);
+      nonHaz++;
+      missDist.push(item.close_approach_data[0].close_approach_date_full + "_" + item.close_approach_data[0].miss_distance.kilometers);
+      nonSizeMin.push(item.close_approach_data[0].close_approach_date_full + "_" + item.estimated_diameter.meters.estimated_diameter_min);
+      nonSizeMx.push(item.close_approach_data[0].close_approach_date_full + "_" + item.estimated_diameter.meters.estimated_diameter_max);
+    }
+
+    else if (item.is_potentially_hazardous_asteroid === false && item.close_approach_data[0].close_approach_date_full == null) {
+      nonHazNa.push(item.close_approach_data[0].close_approach_date_full + "      ➮  " + item.name);
+      nonHaz++;
+      missDist.push(item.close_approach_data[0].close_approach_date_full + "_" + item.close_approach_data[0].miss_distance.kilometers);
+    // nonName.push(item.name);
     }
     // console.log(item.is_potentially_hazardous_asteroid)
     }
     );
 
-  for( var i = 0; i < hazTimeDisplay.length; i++){
-
-     if ( hazTimeDisplay[i] === null) {
-       hazTimeDisplay.splice(i, 1);
-       hazNa.push('N/A');
-     }
-  };
-
-  for( var i = 0; i < nonTimeDisplay.length; i++){
-
-    sizeCut++;
-
-    if ( nonTimeDisplay[i] === null ) {
-      nonTimeDisplay.splice(i, 1);
-      nonHazNa.push('N/A');
-    }
-
-  };
-
-  console.log(sizeCut);
-
-  // console.log(nonHazNa);
+//old way of cutting out null times
+  // for( var i = 0; i < hazTimeDisplay.length; i++){
   //
-  // console.log(nonHaz);
+  //    if ( hazTimeDisplay[i] === null) {
+  //      hazTimeDisplay.splice(i, 1);
+  //      // hazNa.push('N/A');
+  //    }
+  // };
+
+  // for( var i = 0; i < nonTimeDisplay.length; i++){
   //
-  // console.log(nonTimeDisplay);
+  //   sizeCut++;
   //
-  // console.log(hazTimeDisplay);
+  //   if ( nonTimeDisplay[i] === null ) {
+  //     nonTimeDisplay.splice(i, 1);
+  //     // nonHazNa.push('N/A');
+  //   }
+  //
+  // };
 
   //turn milliseconds into seconds (coeff) and use this to round current time to nearest minute
   //so can check if time of hazardous asteroid falls within the current minute
@@ -130,7 +147,7 @@ async function getAst() {
   //seconds
   // hazCalc = x => (x - rounded)/1000;
   hazDistance = hazTimes.map(hazCalc);
-  console.log(hazDistance);
+  // console.log(hazDistance);
 
   // astCalc = x => (x - rounded)/60000;
   // astDistance = astTimes.map(astCalc);
@@ -141,46 +158,124 @@ async function getAst() {
   // hazSend = hazDistance.map(hazCalc2);
   // console.log(hazSend);
 
-  hazCalc3 = x => x.slice(12, 17);
+
+  //tidy up arrays before display
+  hazCalc3 = x => x.slice(12, 50);
   hazSlice = hazTimeDisplay.map(hazCalc3);
   hazSlice.sort();
-  console.log(hazSlice);
 
-  nonCalc = x => x.slice(12, 17);
+  nonCalc = x => x.slice(12, 50);
   nonSlice = nonTimeDisplay.map(nonCalc);
   nonSlice.sort();
-  console.log(nonSlice);
 
-  for( var i = 0; i < nonSlice.length; i++){
-
-    if ( nonSlice.length >= 10 ) {
-      nonSlice.splice(10, sizeCut - 10);
-    }
-
-  };
-
-  nonCalcCol = x => x.slice(12, 17);
-  nonSlice1 = nonTimeDisplay.map(nonCalcCol);
-  nonSlice1.sort();
-  console.log(nonSlice);
-
-  for( var i = 0; i < nonSlice1.length; i++){
-
-    if ( nonSlice1.length >= 10 ) {
-      nonSlice1.splice(0, 10);
-    }
-    else if ( nonSlice.length <= 10 ) {
-      nonSlice1 = 0;
-    }
-
-  };
-
-  console.log(nonSlice1);
-
-  // near_earth_objects.[2020-01-31].id.push("420");
-  // console.log(data.id);
+  nullCalc = x => x.replace("null", "N/A");
+  nullToNa = nonHazNa.map(nullCalc);
+  hazNullToNa = hazNa.map(nullCalc);
 
 
+  //slice out up to close approach time so can sort in chronological order
+  formCalc3 = x => x.slice(11, 30);
+  nfm1 = missDist.map(formCalc3);
+  hfm1 = hazMissDist.map(formCalc3);
+  nfm1.sort();
+  hfm1.sort();
+
+  //add commas where appropriate (regex)
+  formCalc = x => x.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  nfm = nfm1.map(formCalc);
+  hfm = hfm1.map(formCalc);
+
+  //remove decimal places (I know toFixed can work but couldn't think how to use it)
+  formCalc2 = x => x.split('.')[0];
+  nonF = nfm.map(formCalc2);
+  hazF = hfm.map(formCalc2);
+
+  //finally slice out just miss distance (since already sorted in chronological order)
+  formCalc4 = x => x.slice(7, 30);
+  nonFormat = nonF.map(formCalc4);
+  hazFormat = hazF.map(formCalc4);
+
+  //non hazardous size minimum
+  //remove Date and use time to chronologically order size
+  rmvDate = x => x.slice(11, 30);
+  noHaMiSz = nonSizeMin.map(rmvDate);
+  noHaMiSz.sort();
+
+  rmvTime = x => x.slice(7, 30);
+  noHaMiSzDis = noHaMiSz.map(rmvTime);
+
+  // noDeci = x => x.split('.')[0];
+  // noHaMiSzDisp = noHaMiSzDis.map(noDeci);
+
+  //non hazardous size maximum
+  rmvDate2 = x => x.slice(11, 30);
+  noHaMxSz = nonSizeMx.map(rmvDate2);
+  noHaMxSz.sort();
+
+  rmvTime2 = x => x.slice(7, 30);
+  noHaMxSzDis = noHaMxSz.map(rmvTime2);
+
+  //finally remove decimals for both
+  noDeci = x => x.split('.')[0];
+  noHaMiSzDisp = noHaMiSzDis.map(noDeci);
+  noHaMxSzDisp = noHaMxSzDis.map(noDeci);
+
+  console.log(noHaMxSzDisp);
+
+  //hazardous size minimum
+  //remove Date and use time to chronologically order size
+  rmvDate3 = x => x.slice(11, 30);
+  hazMiSz = hazSizeMin.map(rmvDate3);
+  hazMiSz.sort();
+
+  rmvTime3 = x => x.slice(7, 30);
+  hazMiSzDis = hazMiSz.map(rmvTime3);
+
+  // noDeci = x => x.split('.')[0];
+  // noHaMiSzDisp = noHaMiSzDis.map(noDeci);
+
+  //hazardous size maximum
+  rmvDate4 = x => x.slice(11, 30);
+  hazMxSz = hazSizeMx.map(rmvDate4);
+  hazMxSz.sort();
+
+  rmvTime4 = x => x.slice(7, 30);
+  hazMxSzDis = hazMxSz.map(rmvTime4);
+
+  //finally remove decimals for both
+  noDeci2 = x => x.split('.')[0];
+  hazMiSzDisp = hazMiSzDis.map(noDeci2);
+  hazMxSzDisp = hazMxSzDis.map(noDeci2);
+
+
+// //slicing to new column over 10 items (before adding names)
+//   for( var i = 0; i < nonSlice.length; i++){
+//
+//     if ( nonSlice.length >= 10 ) {
+//       nonSlice.splice(10, sizeCut - 10);
+//     }
+//
+//   };
+//
+//   nonCalcCol = x => x.slice(12, 40);
+//   nonSlice1 = nonTimeDisplay.map(nonCalcCol);
+//   nonSlice1.sort();
+//   console.log(nonSlice);
+//
+//   for( var i = 0; i < nonSlice1.length; i++){
+//
+//     if ( nonSlice1.length > 10 ) {
+//       nonSlice1.splice(0, 10);
+//     }
+//     else if ( nonSlice.length < 10 ) {
+//       nonSlice1 = 0;
+//     }
+//
+//   };
+
+  //////
+
+//temporal checks
   // if (astTimes.includes(rounded.getTime())&&hazTimes.includes(rounded.getTime())) {
   //   console.log("potentially hazardous animation");
   //
@@ -216,49 +311,41 @@ async function getAst() {
   //
   // });
 
+  // console.log(nonHazNa);
+  // console.log(hazNullToNa);
+
   document.getElementById('totalAsteroids').textContent = element_count;
   document.getElementById('potentiallyHazardous').textContent = totalHaz;
   document.getElementById('nonHazardous').textContent = nonHaz;
 
-  document.getElementById('hazTimeDisplay').textContent = hazSlice.join("\r\n") + "\r\n" + hazNa.join("\r\n");
+  document.getElementById('hazTimeDisplay').textContent = hazSlice.join("\r\n") + "\r\n" + hazNullToNa.join("\r\n");
+
+  document.getElementById('hazMissDist').textContent = hazFormat.join("\r\n");
+  document.getElementById('nonMissDist').textContent = nonFormat.join("\r\n");
   // document.getElementById('hazTimeDisplay').style.fontSize = (hazSlice.length * 4) + "vmin";
 
-  document.getElementById('nonHazTimeDisplay').textContent = nonSlice.join("\r\n");
+  document.getElementById('nonHazTimeDisplay').textContent = nonSlice.join("\r\n") + "\r\n" + nullToNa.join("\r\n");
 
-  document.getElementById('time').textContent = time;
+  document.getElementById('noHaMiSz').textContent = noHaMiSzDisp.join("\r\n");
+  document.getElementById('noHaMxSz').textContent = noHaMxSzDisp.join("\r\n");
 
-  document.getElementById('nonHazTimeDisplay2').textContent = nonSlice1.join("\r\n") + "\r\n" + nonHazNa.join("\r\n");
+  document.getElementById('hazMiSz').textContent = hazMiSzDisp.join("\r\n");
+  document.getElementById('hazMxSz').textContent = hazMxSzDisp.join("\r\n");
+
+  // document.getElementById('time').textContent = time;
+
+  //fix this so doesn't throw error when empty
+  // document.getElementById('nonHazTimeDisplay2').textContent = nonSlice1.join("\r\n");
+
   // document.getElementById('nonHazTimeDisplay').style.fontSize = nonSlice.length/7 + "vmin";
-
-
-
 
   // document.getElementById('date').textContent = displayDate;
   // document.getElementById('vel').textContent = velocity;
 
-  }
-
-  // function setup() {
-  //   createCanvas(windowWidth, windowHeight);
-  // }
-
-  // function astApproach(ellipx) {
-  //   // let d = hazDistance;
-  //   // console.log(d);
-  //   // let hazMap = map(d, 600, 0, 0, 400, true);
-  //
-  //   fill(100, 100, 100);
-  //   ellipse (ellipx, 500, 10);
-  // }
-  //
-  // function draw() {
-  //   // console.log(hazDistance);
-  //   astApproach(200);
-  // }
+  };
 
   getAst().catch(alert);
 
-// getISS();
-
   setInterval(getAst, 60000);
+
 

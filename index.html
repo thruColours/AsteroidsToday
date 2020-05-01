@@ -7,7 +7,8 @@
 
     <!-- api key: oc2osS1PDgSZWDOphc4r10HtzpHVZacT59v3drpp -->
     <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:600&display=swap" rel="stylesheet">
 
     <script type="text/javascript" src="assets/javascript/lib/p5.min.js"></script>
     <script type="text/javascript" src="assets/javascript/lib/p5.dom.min.js"></script>
@@ -24,13 +25,13 @@
       </div> -->
 
       <!-- <div class="positionBox"> -->
-      <div class="timeNow">time now
+      <!-- <div class="timeNow">time now (UTC)
       <div id="time"> </div>
-      </div>
+      </div> -->
 
         <div class="todTot">
-          Today's <br />
-          Asteroids
+          today's <br />
+          asteroids
         </div>
           <!-- <br /> -->
         <div class="posTot">
@@ -38,7 +39,7 @@
         </div>
 
         <div class="potHaz">
-          Potentially
+          potentially
           <br />
           hazardous
         </div>
@@ -47,42 +48,49 @@
           <span id="potentiallyHazardous"></span>
         </div>
 
+        <div id="hazTimeName"> time &nbsp; &nbsp; &nbsp; &nbsp;  name</div>
+        <div id="hazTimeDisplay"></div>
+
+        <div id="hazMissTitle"> miss distance (km)</div>
+        <div id="hazMissDist"></div>
+
+        <div id="hazSizeTitle"> size (m) </div>
+        <div id="hazSizeMiMx"> min. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; max. </div>
+        <div id="hazMiSz"> </div>
+        <div id="hazMxSz"> </div>
+
         <div class="nonHaz">
-          Friendly
+          friendly
         </div>
 
         <div class="posNonHaz">
           <span id="nonHazardous"></span>
         </div>
 
-          <!-- velocity: <span id="date"></span> -->
-          <!-- <br /> -->
-          <!-- <span id="closeApproch"> *Close approach time</span> -->
+        <div id="nonSizeTitle"> size (m) </div>
+        <div id="nonSizeMiMx"> min. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; max. </div>
+        <div id="noHaMiSz"> </div>
+        <div id="noHaMxSz"> </div>
 
-          <!-- <span> <div id="hazTimeDisplay"></div></span> -->
+        <div id="closeApprochNon"> time &nbsp; &nbsp; &nbsp; &nbsp;  name</div>
+        <div id="nonHazTimeDisplay"></div>
 
+        <div id="nonMissTitle"> miss distance (km)</div>
+        <div id="nonMissDist"></div>
 
-      <div id="closeApprochNon"> Close approach </div>
-      <div id="nonHazTimeDisplay"></div>
-      <div id="nonHazTimeDisplay2"></div>
+      <!-- <div id="nonHazTimeDisplay2"></div> -->
 
-      <div id="closeApprochHaz"> Close approach </div>
-      <div id="hazTimeDisplay"></div>
 
       <!-- <div class="earth"> <img src="/assets/images/earthOutline.svg"> </div> -->
 
-      <!-- <div class="dot">
-      </div>
-
-      <div class="dot2">
-      </div>
-
-      <div class="dot3">
-      </div> -->
-
       <!-- <div class="astApproach"> </div> -->
 
-    <script src="getAstDisplay.js"> </script>
+      <!-- <div id="info"> data from NASA NeoWise </div> -->
+      <div id="neoWise"> <img src="/assets/images/wise.png"> </div>
+
+      <script src="getAstDisplay.js"> </script>
+
+      <script type="text/javascript" src="clockTHREE.js"></script>
 
   </body>
 </html>

@@ -1,7 +1,7 @@
 .bodi {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: #DCDCDC;
   overflow: hidden;
 }
 
@@ -37,7 +37,7 @@
 } */
 
 #totalAsteroids {
-  font-size: 14vmin;
+  font-size: 9.5vmin;
   font-family: newFont;
   /* font-family: 'IBM Plex Sans', ; */
 }
@@ -45,49 +45,70 @@
 .todTot {
   font-family: 'IBM Plex Sans';
   /* font-family: newFont; */
-  font-size: 4vmin;
+  font-size: 3vmin;
   position: absolute;
-  top: 5.5vmin;
+  top: 4vmin;
   left: 5vmin;
   text-align: left;
-  color: white;
+  color: black;
   z-index: 1;
 }
 
 .posTot {
-  color: white;
+  color: black;
   position: fixed;
-  top: 5.5vmin;
-  left: 32vmin;
+  top: 4vmin;
+  left: 26vmin;
 }
 
 #potentiallyHazardous {
-  font-size: 14vmin;
+  font-size: 9.5vmin;
   font-family: newFont;
   color: #DC143C;
 }
 
-.potHaz {
+/* dekstop */
+/* .potHaz {
   font-family: 'IBM Plex Sans';
-  /* font-family: newFont; */
-  font-size: 4vmin;
+
+  font-size: 3vmin;
   position: absolute;
-  top: 22vmin;
-  left: 55vmin;
+  top: 14vmin;
+  left: 83vmin;
   text-align: left;
   color: white;
+  z-index: 1;
+} */
+
+/* dekstop */
+/* .posHaz {
+  color: white;
+  position: absolute;
+  top: 14.5vmin;
+  left: 108vmin;
+} */
+
+.potHaz {
+  font-family: 'IBM Plex Sans';
+
+  font-size: 3vmin;
+  position: absolute;
+  top: 18vmin;
+  left: 5vmin;
+  text-align: left;
+  color: black;
   z-index: 1;
 }
 
 .posHaz {
-  color: white;
+  color: black;
   position: absolute;
-  top: 22vmin;
-  left: 85vmin;
+  top: 18vmin;
+  left: 26.5vmin;
 }
 
 #nonHazardous {
-  font-size: 14vmin;
+  font-size: 9.5vmin;
   font-family: newFont;
   /* color: #008B8B; */
   color: #008B8B;
@@ -96,20 +117,20 @@
 .nonHaz {
   font-family: 'IBM Plex Sans';
   /* font-family: newFont; */
-  font-size: 4vmin;
+  font-size: 3vmin;
   position: absolute;
-  top: 22vmin;
+  top: 55vmin;
   left: 5vmin;
   text-align: left;
-  color: white;
+  color: black;
   z-index: 1;
 }
 
 .posNonHaz {
-  color: white;
+  color: black;
   position: absolute;
-  top: 22vmin;
-  left: 32vmin;
+  top: 55vmin;
+  left: 26.5vmin;
 }
 
 #date {
@@ -117,32 +138,151 @@
   font-size: 2vw;
 }
 
-#hazTimeDisplay {
+
+ #hazTimeName {
+   color: black;
+   font-family: 'IBM Plex Sans';
+
+   font-size: 2.8vmin;
+   z-index: 1;
+   left: 5vmin;
+   top: 30vmin;
+   width: 40vmin;
+
+   position: absolute;
+
+  }
+
+/* dekstop */
+/* #hazTimeDisplay {
+  white-space: pre-wrap;
   font-family: 'IBM Plex Sans';
-  font-size: 6vmin;
+  font-size: 3.5vmin;
   position: absolute;
-  width: 1vmin;
-  top: 41vmin;
-  left: 55vmin;
-  /* left: 43vw; */
-  text-align: left;
+
+  top: 29.5vmin;
+  left: 80vmin;
+
   color: #DC143C;
+  display: block;
+
+} */
+
+#hazTimeDisplay {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+
+  top: 34vmin;
+  left: 5vmin;
+
+  color: #DC143C;
+  display: block;
+
 }
 
-#nonHazTimeDisplay {
+#hazMissDist {
+  white-space: pre-wrap;
   font-family: 'IBM Plex Sans';
-  font-size: 3vmin;
+  font-size: 2.8vmin;
   position: absolute;
-  width: 1vmin;
-  top: 42vmin;
-  left: 5.5vmin;
+  /* width: 70vmin; */
+  top: 34vmin;
+  left: 48vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  color: #DC143C;
+  /* display: block; */
+  /* animation: blink 9s alternate 9s infinite; */
+}
+
+#hazMissTitle {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 48vmin;
+  top: 30vmin;
+  position: absolute;
+  display: block;
+  /* animation: blink 9s alternate 9s infinite; */
+}
+
+#hazMiSz {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 34vmin;
+  left: 77vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #DC143C;
+  display: block;
+}
+
+#hazMxSz {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 34vmin;
+  left: 90vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #DC143C;
+  display: block;
+}
+
+#hazSizeTitle {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 82vmin;
+  top: 25vmin;
+  position: absolute;
+  display: block;
+}
+
+#hazSizeMiMx {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 77vmin;
+  top: 29.85vmin;
+  position: absolute;
+  display: block;
+}
+
+/* ---- */
+
+#nonHazTimeDisplay {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 71vmin;
+  left: 5vmin;
   /* left: 43vw; */
   /* text-align: left; */
   /* color: #008B8B; */
   color: #008B8B;
+  display: block;
+  /* animation: blink 9s alternate infinite; */
 }
 
-#nonHazTimeDisplay2 {
+/* #nonHazTimeDisplay2 {
   font-family: 'IBM Plex Sans';
   font-size: 3vmin;
   position: absolute;
@@ -152,32 +292,126 @@
   /* left: 43vw; */
   /* text-align: left; */
   /* color: #008B8B; */
-  color: #008B8B;
-}
-
-#closeApprochHaz {
-  color: white;
-  font-family: 'IBM Plex Sans';
-  /* font-family: newFont; */
-  font-size: 3vmin;
-  z-index: 1;
-  left: 55vmin;
-  top: 37vmin;
-  position: absolute;
-}
+  /* color: #008B8B; */
+/* }  */
 
 #closeApprochNon {
-  color: white;
+  color: black;
   font-family: 'IBM Plex Sans';
   /* font-family: newFont; */
-  font-size: 3vmin;
+  font-size: 2.8vmin;
   z-index: 1;
   left: 5vmin;
-  top: 37vmin;
+  top: 67vmin;
   position: absolute;
+  display: block;
+  /* animation: blink 9s alternate infinite; */
 }
 
-.dot {
+#nonMissDist {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 71vmin;
+  left: 48vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #008B8B;
+  display: block;
+  /* animation: blink 9s alternate 9s infinite; */
+}
+
+#nonMissTitle {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 48vmin;
+  top: 67vmin;
+  position: absolute;
+  display: block;
+  /* animation: blink 9s alternate 9s infinite; */
+}
+
+#noHaMiSz {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 71vmin;
+  left: 77vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #008B8B;
+  display: block;
+}
+
+#noHaMxSz {
+  white-space: pre-wrap;
+  font-family: 'IBM Plex Sans';
+  font-size: 2.8vmin;
+  position: absolute;
+  /* width: 50vmin; */
+  top: 71vmin;
+  left: 90vmin;
+  /* left: 43vw; */
+  /* text-align: left; */
+  /* color: #008B8B; */
+  color: #008B8B;
+  display: block;
+}
+
+#nonSizeTitle {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 82vmin;
+  top: 62.25vmin;
+  position: absolute;
+  display: block;
+}
+
+#nonSizeMiMx {
+  color: black;
+  font-family: 'IBM Plex Sans';
+  /* font-family: newFont; */
+  font-size: 2.8vmin;
+  z-index: 1;
+  left: 77vmin;
+  top: 67vmin;
+  position: absolute;
+  display: block;
+}
+
+/* #info {
+  color: black;
+  font-family: 'IBM Plex Sans';
+
+  font-size: 2.5vmin;
+
+  left: 39vmin;
+  top: 174vmin;
+  position: absolute;
+  display: block;
+} */
+
+#neoWise img {
+  width: 22vmin;
+  top: 4vmin;
+  left: 44vmin;
+  position: absolute;
+  display: block;
+}
+
+/* .dot {
   position: fixed;
   background-color: purple;
   border-radius: 50%;
@@ -191,91 +425,110 @@
 
   animation: myOrbit linear infinite 6s ;
   /* opacity: 75%; */
-}
+/* } */
 
-.dot2 {
-  position: fixed;
-  background-color: orange;
-  border-radius: 50%;
-  height: 0.4em;
-  width: 0.4em;
-
-  top: 50vh;
-  left: 50vw;
-
-  z-index: -1;
-
-  animation: myOrbit linear infinite 8s ;
-  /* opacity: 75%; */
-}
-
-.dot3 {
-  position: fixed;
-  background-color: green;
-  border-radius: 50%;
-  height: 0.3em;
-  width: 0.3em;
-
-  top: 50vh;
-  left: 50vw;
-
-  z-index: -1;
-
-  animation: myOrbit linear infinite 10s ;
-  /* opacity: 75%; */
-}
-
-@keyframes myOrbit {
+/* @-webkit-keyframes myOrbit {
     from { transform: rotate(0deg) translateX(240px) rotate(0deg); }
     to   { transform: rotate(360deg) translateX(240px) rotate(-360deg); }
-}
+} */
 
-.earth {
+/* .earth {
   position: absolute;
   top: 45vh;
   left: 50vw;
-  width: 20vmin;
+  width: 20vmin; */
   /* filter: invert(100%); */
   /* filter: invert(50%) sepia(0); */
-  z-index: 1;
-}
+  /* z-index: 1;
+} */
 
 #time{
   position: absolute;
   font-family: 'IBM Plex Sans';
-  font-size: 4vmin;
-  top: 4vmin;
-  right: 1.25vmin;
-  color: white;
-  animation: blink 1s alternate infinite;
+  font-size: 3vmin;
+  top: 2.5vmin;
+  right: 0vmin;
+  color: orange;
+  /* animation: blink 1s alternate infinite; */
   text-align: left;
 }
 
 .timeNow{
   position: absolute;
   font-family: 'IBM Plex Sans';
-  font-size: 3vmin;
-  top: 4vmin;
-  right: 5vmin;
+  font-size: 2.2vmin;
+  top: 3vmin;
+  right: 4vmin;
   color: white;
   /* animation: blink 1s alternate infinite; */
   text-align: left;
 }
 
-@keyframes blink {
+@media only screen and (min-width: 768px) {
+  #nonHazTimeDisplay {
+      font-size: 2vmin;
+      top: 34vmin;
+      left: 102vmin;
+  }
+  #closeApprochNon {
+    font-size: 2vmin;
+    top: 30.6vmin;
+    left: 102vmin;
+  }
+  #nonMissTitle {
+    font-size: 2vmin;
+    top: 30.6vmin;
+    left: 137vmin;
+  }
+  #nonMissDist {
+    font-size: 2vmin;
+    top: 34vmin;
+    left: 137vmin;
+  }
+  #nonSizeTitle {
+    font-size: 2vmin;
+    top: 27vmin;
+    left: 157vmin;
+  }
+  #nonSizeMiMx {
+    font-size: 2vmin;
+    top: 30.6vmin;
+    left: 164vmin;
+  }
+  #noHaMiSz {
+    font-size: 2vmin;
+    top: 34vmin;
+    left: 164vmin;
+  }
+  #noHaMxSz {
+    font-size: 2vmin;
+    top: 34vmin;
+    left: 174.4vmin;
+  }
+  .posNonHaz {
+    top: 18.5vmin;
+    left: 119.5vmin;
+  }
+  .nonHaz {
+    top: 18vmin;
+    left: 102vmin;
+  }
+
+
+@-webkit-keyframes blink {
   from { opacity: 0%; }
   to { opacity: 100%; }
 }
 
-.astApproach {
+/* .astApproach {
   position: absolute;
   background-color: #8B0000;
   border-radius: 50%;
   height: 0.3em;
-  width: 0.3em;
+  width: 0.3em; */
 
   /* top: 50vh; */
   /* left: 9vw; */
 
-  z-index: 0;
-}
+  /* z-index: 0;
+} */
