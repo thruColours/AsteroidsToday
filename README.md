@@ -1,2 +1,2 @@
 # getAst
-in development for online
+online at http://asteroidstoday.surge.sh/ for web and mobile. 
